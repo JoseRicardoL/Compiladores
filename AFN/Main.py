@@ -16,10 +16,12 @@ ER = Expresion()
 resultado = ER.expresionPostFija(args.Expresion)
 
 evaluacion = ER.evaluacionExpresion(resultado)
-
 fichero = open('fichero.txt', 'w')
-
 for elemento in evaluacion:
     for tabla in elemento.tablaTransiciones:
-        fichero.write('{}'.format(tabla))
+        aux = ""
+        for nodoDestino in tabla.nodosDestino:
+            for nodo in nodoDestino:
+                aux += str(nodo)
+        fichero.write('{}{}\n'.format(tabla.nodoInicio, aux))
 fichero.close()
