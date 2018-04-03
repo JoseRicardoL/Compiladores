@@ -17,6 +17,9 @@ resultado = ER.expresionPostFija(args.Expresion)
 
 evaluacion = ER.evaluacionExpresion(resultado)
 
+fichero = open('fichero.txt', 'w')
+
 for elemento in evaluacion:
     for tabla in elemento.tablaTransiciones:
-        print(tabla)
+        fichero.write('{}'.format(tabla))
+fichero.close()
